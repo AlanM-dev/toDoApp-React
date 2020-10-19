@@ -1,3 +1,6 @@
+/* eslint-disable semi */
+/* eslint-disable react/prop-types */
+/* eslint-disable comma-dangle */
 import React from 'react';
 import styles from './List.scss';
 import Hero from '../Hero/Hero.js';
