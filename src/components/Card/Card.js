@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styles from './Card.scss';
 import PropTypes from 'prop-types';
@@ -7,15 +8,15 @@ import PropTypes from 'prop-types';
 class Card extends React.Component {
 
     static PropTypes = {
-        title: PropTypes.string,
+      title: PropTypes.string,
     }
     
     render() {
-        return (
-            <div className={styles.component}>
-                <h3>{this.props.title}</h3>
-            </div>
-        )
+      return (
+        <div className={styles.component}>
+          <h3>{this.props.title}</h3>
+        </div>
+      );
     }
 }
 
