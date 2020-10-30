@@ -12,7 +12,7 @@ import Creator from '../Creator/Creator.js';
 
 class List extends React.Component {
   
-  static PropTypes = {
+  static propTypes = {
     title: PropTypes.node.isRequired,
     description: PropTypes.node,
     columns: PropTypes.array,

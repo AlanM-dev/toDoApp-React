@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Column from './Column';
-import {getCardsForColumn} from '../../redux/columnsRedux';
-import {createActionAddCard} from '../../redux/columnsRedux';
+import {getCardsForColumn, createActionAddCard} from '../../redux/cardsRedux';
+
 
 
 
