@@ -1,35 +1,51 @@
-/* eslint-disable semi */
-/* eslint-disable react/prop-types */
-/* eslint-disable comma-dangle */
 import React from 'react';
 import styles from './List.scss';
 import Hero from '../Hero/Hero.js';
-import PropTypes from 'prop-types';
-import Column from '../Column/ColumnContainer.js';
+import PropTypes, { string } from 'prop-types';
+import Column from '../Column/ColumnContainer';
 import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator.js';
-import Container from '../Container/Container.js';
+import Container from '../Container/Container';
 
 class List extends React.Component {
-  
+  state = {
+    columns: this.props.columns || [],
+  }
   static propTypes = {
     title: PropTypes.node.isRequired,
-    description: PropTypes.node,
+    image: PropTypes.string,
+    description: string,
     columns: PropTypes.array,
     addColumn: PropTypes.func,
   }
-
+  // static defaultProps = {
+  //   children: <p>I can do all the things!!!</p>,
+  // }
   static defaultProps = {
-    description: settings.defaultListDescription,
+    icon: settings.defaultColumnIcon,
   }
-
+  // addColumn(title){
+  //   this.setState(state => (
+  //     {
+  //       columns: [
+  //         ...state.columns,
+  //         {
+  //           key: state.columns.length ? state.columns[state.columns.length-1].key+1 : 0,
+  //           title,
+  //           icon: 'list-alt',
+  //           cards: [],
+  //         },
+  //       ],
+  //     }
+  //   ));
+  // }  
   render() {
     const {title, image, description, columns, addColumn} = this.props;
     return (
       <Container>
         <section className={styles.component}>
-          <Hero titleText={title} imageProp={image}/>
+          <Hero titleText={title} image={image}/>
           <div className={styles.description}>
             {ReactHtmlParser(description)}
           </div>
@@ -43,7 +59,7 @@ class List extends React.Component {
           </div>
         </section>
       </Container>
-    )
+    );
   }
 }
 

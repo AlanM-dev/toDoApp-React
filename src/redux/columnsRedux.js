@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 
-// selectors  //// {columns}= wyciągnij z tego obiektu, w którym był stan - tylko tę jedną właściwość
+// selectors
 export const getColumnsForList = ({columns}, listId) => columns.filter(column => column.listId == listId);
 
 // action name creator
@@ -14,11 +14,11 @@ export const ADD_COLUMN = createActionName('ADD_COLUMN');
 export const createActionAddColumn = payload => ({ payload: { ...payload, id: shortid.generate() }, type: ADD_COLUMN });
 
 // reducer
-export default function reducer(statePart = [], action = {}) {
+export default function reducer(state = [], action = {}) {
   switch (action.type) {
     case ADD_COLUMN:
-      return [...statePart, action.payload];
+      return [...state, action.payload];
     default:
-      return statePart;
+      return state;
   }
 }
